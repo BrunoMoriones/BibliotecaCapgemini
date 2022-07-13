@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org" style="min-height: 100%; position: relative;">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Lector</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link rel="shortcut icon" href="#">
+	<style>
+		.sombra {
+			box-shadow: 0px 5px 15px 0px rgba(89, 89, 89, 1);
+			background-color: white;
+			padding: 2rem;
+			border-radius: 1rem;
+		}
+
+		.contenedor {
+			position: relative;
+			top: 0.5rem;
+			max-width: 80rem;
+			margin: 0 auto;
+		}
+	</style>
+</head>
+
+<body style="margin: 0; margin-bottom: 60px;">
+	<header th:href="@{/index}" style="background: linear-gradient(black, white); padding: 0.5rem; text-decoration: none;">
+		<h1
+			style="font-size: 4rem; color: white ;padding: 1rem; text-align: center; font-weight: 400; 
+			font-family: 'Krub', sans-serif; text-shadow: 0 0 2px black">
+			BIBLIOTECA <span style="font-weight: 700; font-size: 3rem">Capgemini</span>
+		</h1>
+	</header>
+	<main class="contenedor sombra">
+		<div class="container" style="margin-top:1rem;">
+			<h1>Lectores</h1>
+			<hr>
+			<h2>Agregar Lector</h2>
+
+			<form action="#" th:action="@{/saveLector}" th:object="${lector}" method="POST">
+				<input type="text" th:field="*{nombre}" placeholder="Nombre del Lector" class="form-control mb-4 col-4">
+
+				<input type="text" th:field="*{telefono}" placeholder="Telefono" class="form-control mb-4 col-4"> <input
+					type="text" th:field="*{direccion}" placeholder="Direccion" class="form-control mb-4 col-4">
+
+				<button type="submit" class="btn btn-info col-2">Guardar
+					Lector</button>
+			</form>
+
+			<hr>
+
+			<a th:href="@{/lector}">Volver al Listado de Lectores</a>
+		</div>
+	</main>
+	<footer style="background-color: black; position: absolute; bottom: 0; width:100%; height:40px;">
+		<p style="font-size: 1rem; color: white ;padding: 0.5rem; text-align: center;">
+			Copyright © 2022 Biblioteca Capgemini - Todos los derechos reservados</p>
+	</footer>
+</body>
+
+</html>
